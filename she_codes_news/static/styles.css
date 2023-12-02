@@ -11,8 +11,12 @@ header {
     border-bottom: 1px solid #000;
 }
 
-img {
+img{
     filter: grayscale(100%);
+    transition: filter .3s;
+}
+img:hover {
+    filter: none;
 }
 
 h1 {
