@@ -1,0 +1,20 @@
+{% extends 'base.html' %} 
+{% block content %} 
+{% if request.user.is_authenticated %}
+<div class="user-card">
+
+  <h2>My Stories</h2>
+
+    {% if news %}
+    {% for story in news %}
+    {% include "../news/storyCard.html" with story=story position=forloop.counter %}
+    {% endfor %}
+    {% else %}
+    <p>No stories here...</p>
+    {% endif %}
+    <a href="{% url 'news:newStory' %}" class="create-story">Write New Story &#9830;</a>
+
+</div>
+
+{% endif %} 
+{% endblock %}

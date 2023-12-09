@@ -1,14 +1,23 @@
 <div class="story-card" id="story-card-{{ position }}">
-    <a href="{% url 'news:story' story.id %}">
-        {% if position < 5 %}
-            <img src="../static/news/images/placeholder-{{ position }}.jpg">
-        {% else %}
-            <img src="https://picsum.photos/600">
-        {% endif %}
-        <div class="story-card-text">
-            <h3>{{ story.title }}</h3>
-            <h4>{{ story.author }}</h4>
-            <h4>{{ story.pub_date }}</h4>
-        </div>
-    </a>
+  <a href="{% url 'news:story' story.id %}" class="story-card-link">
+    {% if story.image %}
+    <img src="{{ story.image }}" />
+    {% elif position < 5 %}
+    <img src="../static/news/images/placeholder-{{ position }}.jpg" />
+    {% else %}
+    <img src="https://picsum.photos/600" />
+    {% endif %}
+
+    <div class="story-card-text">
+      <h3>{{ story.title }}</h3>
+      <h4>{{ story.author }}</h4>
+      <h4>{{ story.pub_date|date:"D m/y H:i"|lower }}</h4>
+    </div>
+  </a>
+  {% if request.user.is_authenticated %}
+  <div class="button-wrapper">
+  <a href="{% url 'news:editStory' story.id %}" class="small-button"> Edit </a>
+  <a href="{% url 'news:deleteStory' story.id %}" class="small-button delete"> Delete </a>
+  </div>
+  {% endif %}
 </div>

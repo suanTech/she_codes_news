@@ -1,16 +1,46 @@
-{% extends "base.html" %}
-{% load static %}
+{% extends "base.html" %} 
+{% load static %} 
 {% block stylesheets %}
-<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css'%}">
-{% endblock %}
-
-{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'news/styles.css'%}" />
+{% endblock %} {% block content %}
 <div id="story-wrapper">
-    <h2>{{ story.title }}</h2>
-    <h4>{{ story.author }}</h4>
-    <div id="story-content">
-        <img src="{% static '/news/images/placeholder-5.jpg' %}">
-        {{ story.content|linebreaks }}
-    </div>
+  {% if story.image %}
+  <img class="story-image" src="{{ story.image }}" />
+  {% else %}
+  <img
+    class="story-image"
+    src="{% static '/news/images/placeholder-5.jpg' %}"
+  />
+  {% endif %}
+  <h2>{{ story.title }}</h2>
+  <h4>{{ story.author }}</h4>
+  <div id="story-content">{{ story.content|linebreaks }}</div>
 </div>
-{% endblock %}
+<h4>Comments</h4>
+<div class="comment-section">
+  {% for comment in story.comments.all %}
+  <div class="comment-item">
+    <div class="comment-header">
+      <div class="user-image">
+        <img src="{{comment.author.image}}" />
+      </div>
+      <p><strong>{{comment.author}}</strong></p>
+      <p>{{comment.pub_date|timesince}} ago</p>
+    </div>
+    <p>{{comment.content}}</p>
+  </div>
+  {%endfor%}
+</div>
+
+{% if request.user.is_authenticated %}
+
+<h4>Add Comments</h4>
+<form action="{% url 'news:addComment' story.id %}" method="post" class="custom-form" id="comment">
+  {% csrf_token %} {{ commentform.as_p }}
+  <input type="submit" value="submit" />
+</form>
+{% else %}
+<div>
+  <h2>Please <a href="{% url 'login' %}">Login</a></h2>
+</div>
+{% endif %} {% endblock %}
