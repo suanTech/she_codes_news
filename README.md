@@ -16,7 +16,7 @@
 
 ## Database Schema
 
-![My ERD] (./she_codes_news/static/images/erm-diagram.png)
+![My ERD](./she_codes_news/static/images/erm-diagram.png)
 
 ## Project Features
 
