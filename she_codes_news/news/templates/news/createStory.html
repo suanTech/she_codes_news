@@ -4,6 +4,7 @@
 <link rel="stylesheet" type="text/css" href="{% static 'news/styles.css'%}" />
 {% endblock %}
 {% block content %} 
+<div class="create-story">
 {% if request.user.is_authenticated %}
 <form action="" method="post" class="custom-form" id="news">
     <h2 class="center">Create New story</h2>
@@ -12,7 +13,8 @@
   </form>
 {% else %}
   <div>
-    <h2>Please <a href="{% url 'login' %}">Login</a></h2>
+    <h4>Please <b><a href="{% url 'login' %}">Login</a></b> to create stories</h4>
   </div>
 {% endif %} 
+</div>
 {% endblock %}

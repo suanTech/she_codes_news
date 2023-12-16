@@ -24,8 +24,12 @@ class StoryView(generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["commentform"] = CommentForm()
+        author = self.object.author
+        other_stories = NewsStory.objects.filter(author=author).exclude(id=self.object.id)
+
+        context['other_stories'] = other_stories
         return context
-    
+
 
 class AddStoryView(generic.CreateView):
     form_class = StoryForm

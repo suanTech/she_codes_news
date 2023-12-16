@@ -11,13 +11,15 @@
     <div class="story-card-text">
       <h3>{{ story.title }}</h3>
       <h4>{{ story.author }}</h4>
-      <h4>{{ story.pub_date|date:"D m/y H:i"|lower }}</h4>
+      <h4>{{ story.pub_date|date:"D d/m/y H:i"|lower }}</h4>
     </div>
   </a>
   {% if request.user.is_authenticated %}
+  {% if request.user == story.author %}
   <div class="button-wrapper">
   <a href="{% url 'news:editStory' story.id %}" class="small-button"> Edit </a>
   <a href="{% url 'news:deleteStory' story.id %}" class="small-button delete"> Delete </a>
   </div>
+  {% endif %}
   {% endif %}
 </div>

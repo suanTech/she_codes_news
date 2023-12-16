@@ -41,6 +41,17 @@
 </form>
 {% else %}
 <div>
-  <h2>Please <a href="{% url 'login' %}">Login</a></h2>
+  <p>Please <b><a href="{% url 'login' %}">Login</a></b> to write a comment</p>
 </div>
-{% endif %} {% endblock %}
+{% endif %} 
+<h4>Other stories by {{story.author}}</h4>
+{% if other_stories %}
+<div class="story-wrapper">
+{% for other_story in other_stories %}
+      {% include "./storyCard.html" with story=other_story %}
+      {% empty %}
+      <p>No other stories found by this author.</p>
+      {% endfor %}
+    </div>
+  {% endif %}
+{% endblock %}
