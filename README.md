@@ -21,26 +21,26 @@
 ## Project Features
 
 - [X] Order stories by date
-      ![order by date screenshot] (./she_codes_news/static/images/orderbydate.png)
+      ![order by date screenshot](./she_codes_news/static/images/orderbydate.png)
 - [X] Styled "new story" form
-      ![new story form screenshot] (./she_codes_news/static/images/newstoryform.png)
+      ![new story form screenshot](./she_codes_news/static/images/newstoryform.png)
 - [X] Story images
-      ![story image screenshot] (./she_codes_news/static/images/storyimage.png)
+      ![story image screenshot](./she_codes_news/static/images/storyimage.png)
 - [X] Log-in/log-out
-      ![login screenshot] (./she_codes_news/static/images/login.png)
-      ![logout screenshots] (./she_codes_news/static/images/logout.png)
+      ![login screenshot](./she_codes_news/static/images/login.png)
+      ![logout screenshots](./she_codes_news/static/images/logout.png)
 - [X] "Account view" page
-      ![account view screenshot] (./she_codes_news/static/images/myaccount.png)
+      ![account view screenshot](./she_codes_news/static/images/myaccount.png)
 - [X] "Create Account" page
-      ![create account screenshot] (./she_codes_news/static/images/createaccount.png)
+      ![create account screenshot](./she_codes_news/static/images/createaccount.png)
 - [X] View stories by author
-      ![stories by author screenshot] (./she_codes_news/static/images/storybyauthor.png)
+      ![stories by author screenshot](./she_codes_news/static/images/storybyauthor.png)
 - [X] "Log-in" button only visible when no user is logged in/"Log-out" buttononly visible when a user _is_ logged in
       _see log-in and log-out screenshots_
 - [X] "Create Story" functionality only available when user is logged in
-      ![log in to create screenshot] (./she_codes_news/static/images/logintocreate.png)
+      ![log in to create screenshot](./she_codes_news/static/images/logintocreate.png)
 
 ## Additional Features:
 
 - [X] Add the ability to update and delete stories (consider permissions - who should be allowed to update or and/or delete stories).
-  ![edit delete screenshot] (./she_codes_news/static/images/editdelete.png)
+  ![edit delete screenshot](./she_codes_news/static/images/editdelete.png)
