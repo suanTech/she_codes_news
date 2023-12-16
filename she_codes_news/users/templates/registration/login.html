@@ -1,0 +1,14 @@
+<!-- users/templates/registration/login.html -->
+{% extends 'base.html' %}
+{% block content %}
+<form method="post" class="custom-form auth">
+  <h2 class="center">Login</h2>
+  {% csrf_token %} 
+  {{ form.as_p }}
+  <button type="submit">Login</button>
+  <h4 class="center">Or</h4>
+<a href="{% url 'users:createAccount' %}?returnUrl={{request.path}}" class="button">Create Account</a>
+
+</form>
+
+{% endblock %}
